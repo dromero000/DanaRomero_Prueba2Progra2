@@ -11,6 +11,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  *
@@ -169,8 +170,8 @@ public class iTunes {
             rdownloads.seek(0);
                 while(rdownloads.getFilePointer()<rdownloads.length()){
                 int codigoDownload = rdownloads.readInt();
-                Long fechaD = rdownloads.readLong();
-               //Date fechaD = 
+                Long fecha = rdownloads.readLong();
+               Date fechaD = new Date(fecha);
                 int codSongD = rdownloads.readInt();
                 String clienteD = rdownloads.readUTF();
                 double precioD = rdownloads.readDouble();
